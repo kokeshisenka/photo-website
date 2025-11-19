@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Фото Про - AI Покращення Якості</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Навігаційна панель -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-magic"></i>
+                Фото Про
+            </div>
+            <div class="nav-links">
+                <a href="#convert" class="nav-link active" data-section="convert">Конвертація</a>
+                <a href="#upscale" class="nav-link" data-section="upscale">AI Покращення</a>
+                <a href="#manage" class="nav-link" data-section="manage">Керування</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секція -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">AI-Потужність</span> для ваших фото
+            </h1>
+            <p class="hero-subtitle">Покращення якості 4x • Конвертація форматів • Професійні результати</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-rocket"></i>
+                    <span>4x Збільшення</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>10+ Форматів</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Безпечно</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основний контент -->
+    <main class="main-content">
+        <!-- Конвертація -->
+        <section id="convert" class="section active">
+            <div class="section-header">
+                <h2><i class="fas fa-sync-alt"></i> Конвертація Форматів</h2>
+                <p>Конвертуйте між популярними форматами зображень</p>
+            </div>
+
+            <div class="upload-card">
+                <div class="upload-area" id="convertUploadArea">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Перетягніть фото для конвертації</h3>
+                    <p>PNG, JPG, WEBP, BMP, HEIC</p>
+                    <input type="file" id="convertFileInput" accept="image/*,.heic,.heif" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('convertFileInput').click()">
+                        <i class="fas fa-folder-open"></i>
+                        Обрати файл
+                    </button>
+                </div>
+
+                <div class="preview-section hidden" id="convertPreview">
+                    <div class="preview-grid">
+                        <div class="preview-item">
+                            <h4>Оригінал</h4>
+                            <img id="convertOriginalPreview" src="" alt="Оригінал">
+                            <div id="convertOriginalInfo" class="file-info"></div>
+                        </div>
+                        <div class="preview-item">
+                            <h4>Результат</h4>
+                            <div class="result-placeholder" id="convertResultPlaceholder">
+                                <i class="fas fa-sync-alt"></i>
+                                <p>Оберіть формат для перегляду</p>
+                            </div>
+                            <img id="convertResultPreview" src="" alt="Результат" class="hidden">
+                            <div id="convertResultInfo" class="file-info hidden"></div>
+                        </div>
+                    </div>
+
+                    <div class="format-selector">
+                        <h4>Оберіть цільовий формат:</h4>
+                        <div class="format-grid">
+                            <div class="format-option" data-format="png">
+                                <i class="fas fa-file-image"></i>
+                                <span>PNG</span>
+                                <small>Без втрат якості</small>
+                            </div>
+                            <div class="format-option" data-format="jpg">
+                                <i class="fas fa-file-image"></i>
+                                <span>JPEG</span>
+                                <small>Оптимальний розмір</small>
+                            </div>
+                            <div class="format-option" data-format="webp">
+                                <i class="fas fa-file-image"></i>
+                                <span>WEBP</span>
+                                <small>Сучасний формат</small>
+                            </div>
+                            <div class="format-option" data-format="bmp">
+                                <i class="fas fa-file-image"></i>
+                                <span>BMP</span>
+                                <small>Без стиснення</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-success" id="convertBtn" disabled>
+                            <i class="fas fa-download"></i>
+                            Завантажити
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetConversion()">
+                            <i class="fas fa-redo"></i>
+                            Новий файл
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Покращення -->
+        <section id="upscale" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-robot"></i> AI Покращення Якості</h2>
+                <p>Використовуйте штучний інтелект для 4x збільшення якості</p>
+            </div>
+
+            <div class="upscale-card">
+                <div class="upload-area" id="upscaleUploadArea">
+                    <i class="fas fa-star upload-icon"></i>
+                    <h3>Перетягніть фото для AI покращення</h3>
+                    <p>До 4x збільшення роздільної здатності</p>
+                    <input type="file" id="upscaleFileInput" accept="image/*" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('upscaleFileInput').click()">
+                        <i class="fas fa-folder-open"></i>
+                        Обрати файл
+                    </button>
+                </div>
+
+                <div class="preview-section hidden" id="upscalePreview">
+                    <div class="preview-grid">
+                        <div class="preview-item">
+                            <h4>До покращення</h4>
+                            <img id="upscaleOriginalPreview" src="" alt="Оригінал">
+                            <div id="upscaleOriginalInfo" class="file-info"></div>
+                        </div>
+                        <div class="preview-item">
+                            <h4>Після покращення (4x)</h4>
+                            <div class="result-placeholder" id="upscaleResultPlaceholder">
+                                <i class="fas fa-robot"></i>
+                                <p>AI обробка...</p>
+                            </div>
+                            <img id="upscaleResultPreview" src="" alt="Результат" class="hidden">
+                            <div id="upscaleResultInfo" class="file-info hidden"></div>
+                        </div>
+                    </div>
+
+                    <div class="model-selector">
+                        <h4>Модель AI:</h4>
+                        <div class="model-options">
+                            <div class="model-option active" data-model="realesrgan-x4plus">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <strong>Real-ESRGAN x4+</strong>
+                                    <small>Найкраща якість • 4x збільшення</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-success" id="upscaleBtn">
+                            <i class="fas fa-bolt"></i>
+                            Запустити AI Покращення
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetUpscale()">
+                            <i class="fas fa-redo"></i>
+                            Новий файл
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Керування файлами -->
+        <section id="manage" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-folder"></i> Керування Файлами</h2>
+                <p>Переглядайте та видаляйте завантажені файли</p>
+            </div>
+
+            <div class="management-card">
+                <div class="storage-info">
+                    <div class="storage-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-hdd"></i>
+                            <div>
+                                <h3 id="totalFiles">0</h3>
+                                <p>Файлів</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-weight-hanging"></i>
+                            <div>
+                                <h3 id="totalSize">0 MB</h3>
+                                <p>Загальний розмір</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="clearAllFiles()">
+                        <i class="fas fa-trash"></i>
+                        Очистити все
+                    </button>
+                </div>
+
+                <div class="files-list" id="filesList">
+                    <div class="empty-state">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>Немає файлів</h3>
+                        <p>Завантажені файли з'являться тут</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Фото Про. Зроблено з ❤️ для України</p>
+        </div>
+    </footer>
+
+    <!-- Модальні вікна -->
+    <div id="loadingModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <h3 id="loadingTitle">Обробка...</h3>
+            <p id="loadingMessage">Будь ласка, зачекайте</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal hidden">
+        <div class="modal-content error">
+            <span class="close-btn" onclick="closeModal('errorModal')">&times;</span>
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3 id="errorTitle">Помилка</h3>
+            <p id="errorMessage"></p>
+            <button class="btn btn-primary" onclick="closeModal('errorModal')">Зрозуміло</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
